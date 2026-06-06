@@ -115,6 +115,7 @@
   .proj:hover h3 .arrow { transform: translate(4px,-4px); color:var(--accent); }
   .proj p { color:var(--text-2); font-size:14.5px; margin:0; flex:1; }
   .proj .badge-row { margin-top:6px; }
+  .proj.wide { grid-column: span 2; }
   /* feature: full-width, editorial 2-column */
   .proj.feature { grid-column: span 2; display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px 48px; align-items:center; padding:36px; }
   .proj.feature .fcol { display:flex; flex-direction:column; gap:14px; }
@@ -184,7 +185,12 @@
     .b-about, .b-stats, .b-now { grid-column: span 2; grid-row:auto; }
     .b-edu { grid-column: span 2; }
     .projects { grid-template-columns:1fr; }
-    .proj.feature { grid-column:auto; grid-template-columns:1fr; gap:18px; padding:26px; }
+    .proj { padding:22px; }
+    .proj.wide { grid-column:auto; }
+    .proj h3 { font-size:21px; }
+    .proj.feature { grid-column:auto; grid-template-columns:1fr; gap:16px; padding:22px; }
+    .proj.feature h3 { font-size:26px; }
+    .proj.feature p { font-size:15px; }
     .stack { grid-template-columns:1fr; }
     .vgrid { grid-template-columns:1fr 1fr; }
     .creds { grid-template-columns:1fr; }
@@ -330,7 +336,7 @@
           <p>Responsive Angular components and workflow screens across multiple modules, with reusable components and optimized state handling for consistency, usability, and performance.</p>
           <div class="badge-row"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">HTML/CSS</span></div>
         </a>
-        <a class="proj" href="https://github.com/LakshmiPriyaAnbu" target="_blank" rel="noopener" style="grid-column:span 2; align-items:flex-start;">
+        <a class="proj wide" href="https://github.com/LakshmiPriyaAnbu" target="_blank" rel="noopener" style="align-items:flex-start;">
           <span class="pno">+ more</span>
           <h3>More on GitHub <span class="arrow">↗</span></h3>
           <p style="flex:none">Browse the rest of my projects, experiments, and contributions.</p>
