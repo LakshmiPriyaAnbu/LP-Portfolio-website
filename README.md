@@ -3,17 +3,20 @@
 A single-page, responsive developer portfolio with light/dark themes.
 Built with plain **HTML + CSS + a little vanilla JavaScript** — no framework, no build step.
 
+🔗 **Live site:** https://lakshmipriyaanbu.github.io/LP-Portfolio-websitse/
+📂 **Repo:** https://github.com/LakshmiPriyaAnbu/LP-Portfolio-websitse
+
 ---
 
 ## 1. What's in this folder
 
 ```
-index.html        →  the whole page (markup + page-specific CSS in <style>)
-styles.css        →  design system: color tokens, light/dark themes, shared components
-theme.js          →  light/dark toggle (saves your choice in localStorage)
-image-slot.js     →  the drag-and-drop photo placeholder in the hero
-resume.pdf        →  the file the "Résumé" buttons open
-README.md         →  this guide
+index.html    →  the whole page (markup + page-specific CSS in <style>)
+styles.css    →  design system: color tokens, light/dark themes, shared components
+theme.js      →  light/dark toggle (saves your choice in localStorage)
+photo.jpg     →  the hero portrait photo
+resume.pdf    →  the file the "Résumé" buttons open (downloads as LakshmiPriyaResume.pdf)
+README.md     →  this guide
 ```
 
 Fonts (Open Sans + JetBrains Mono) load from Google Fonts, so keep an internet
@@ -30,7 +33,8 @@ connection the first time you open it; it falls back to system fonts offline.
    It opens in your browser and auto-reloads every time you save.
 
 (No Live Server? You can also just double-click `index.html` to open it in a browser —
-you only lose the auto-reload.)
+you only lose the auto-reload. Live Server is recommended so the résumé download and
+fonts behave exactly like they will online.)
 
 ---
 
@@ -43,12 +47,11 @@ clear `id`: `#about`, `#work`, `#experience`, `#stack`, `#versatility`,
 **Links** — search `index.html` for:
 - `lakshmipriya.anbu07@gmail.com` (email)
 - `github.com/LakshmiPriyaAnbu` and the LinkedIn URL
-- `resume.pdf` (replace this file with a newer résumé, keep the name)
+- `resume.pdf` (replace this file with a newer résumé, keep the name `resume.pdf`)
 
-**Your photo** — in the hero there's `<image-slot id="hero-portrait">`. To hard-code a
-photo instead of the drag-drop slot, replace that tag with:
-`<img src="photo.jpg" alt="Lakshmi Priya A" style="width:100%;border-radius:20px">`
-and drop a `photo.jpg` into the folder.
+**Your photo** — the hero uses `<img class="me" src="photo.jpg" alt="Lakshmi Priya A">`.
+To change it, just replace `photo.jpg` in this folder with a new image of the same name
+(a portrait/4:5 ratio looks best).
 
 **Colors / theme** — open `styles.css`, top of the file:
 - `:root { … }` = light theme tokens
@@ -62,12 +65,24 @@ section. “Let’s talk” points to `#contact`. To make it open email instead,
 
 ---
 
-## 4. Put it online (free)
+## 4. Put it online (free) — GitHub Pages
 
-- **GitHub Pages:** create a repo, upload these files, Settings ▸ Pages ▸ deploy from `main`.
-- **Netlify / Vercel:** drag the folder onto their dashboard, or connect the GitHub repo.
+This site is already set up for GitHub Pages. To publish or update:
 
-Your site will be live at a public URL in a minute or two.
+```bash
+git add .
+git commit -m "Update portfolio"
+git push
+```
+
+Then, the first time only: repo → **Settings → Pages → Source: Deploy from a branch →
+Branch: `main` / `/ (root)` → Save**. Leave the **Custom domain** field EMPTY.
+
+Your site goes live (and auto-updates on every push) at:
+**https://lakshmipriyaanbu.github.io/LP-Portfolio-websitse/**
+
+> Other free hosts: **Netlify** or **Vercel** — drag this folder onto their dashboard,
+> or connect the GitHub repo. Use these if you later want a custom domain.
 
 ---
 
@@ -84,16 +99,12 @@ If you ever want to rebuild it yourself, this is the recipe that was followed:
    these, so it stays consistent.
 3. **Lay out the page as labelled sections** in this order: Hero → About (bento grid) →
    Work → Experience → Stack → Versatility → Education → Contact. Each is a `<section id>`.
-4. **Make it responsive** with CSS grid + `clamp()` for type, plus one mobile breakpoint
-   (`@media (max-width: 900px)`) that collapses multi-column grids to one column.
+4. **Make it responsive** with CSS grid + `clamp()` for type, plus mobile breakpoints
+   (`@media (max-width: 900px)` and `560px`) that collapse multi-column grids to one column.
 5. **Add light touches of motion** — hover lifts on cards, a skills marquee, a gradient
    glow and grain texture — without overdoing it.
-6. **Wire the small JS last:** the theme toggle (`theme.js`), the scroll-spy that
-   highlights the active nav link, and the photo slot (`image-slot.js`).
+6. **Wire the small JS last:** the theme toggle (`theme.js`) and the scroll-spy that
+   highlights the active nav link.
 7. **Fill with real content** from the résumé/LinkedIn, keeping claims honest.
 
 That's it — a fast, framework-free site you fully own.
-
-
-🔗 Live site: https://lakshmipriyaanbu.github.io/LP-Portfolio-websitse/
-📂 Repo: https://github.com/LakshmiPriyaAnbu/LP-Portfolio-websitse

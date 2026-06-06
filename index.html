@@ -104,8 +104,8 @@
   .b-edu .meta { font-family:var(--mono); font-size:11px; color:var(--text-3); margin-top:8px; }
 
   /* projects — text-forward cards */
-  .projects { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  .proj { position:relative; grid-column: span 1; border:1px solid var(--border); border-radius:20px; background:var(--panel); padding:28px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow); transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s; text-decoration:none; color:inherit; overflow:hidden; }
+  .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap:18px; }
+  .proj { position:relative; min-width:0; border:1px solid var(--border); border-radius:20px; background:var(--panel); padding:28px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow); transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s; text-decoration:none; color:inherit; overflow:hidden; }
   .proj::after { content:""; position:absolute; left:0; top:0; width:0; height:3px; background:var(--accent); transition: width .4s cubic-bezier(.2,.7,.2,1); }
   .proj:hover::after { width:100%; }
   .proj:hover { transform: translateY(-5px); box-shadow:var(--shadow-lg); border-color:var(--border-2); }
@@ -115,9 +115,9 @@
   .proj:hover h3 .arrow { transform: translate(4px,-4px); color:var(--accent); }
   .proj p { color:var(--text-2); font-size:14.5px; margin:0; flex:1; }
   .proj .badge-row { margin-top:6px; }
-  .proj.wide { grid-column: span 2; }
+  .proj.wide { grid-column: 1 / -1; }
   /* feature: full-width, editorial 2-column */
-  .proj.feature { grid-column: span 2; display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px 48px; align-items:center; padding:36px; }
+  .proj.feature { grid-column: 1 / -1; display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px 48px; align-items:center; padding:36px; }
   .proj.feature .fcol { display:flex; flex-direction:column; gap:14px; }
   .proj.feature h3 { font-size: clamp(28px,4.2vw,50px); }
   .proj.feature p { font-size:16px; }
@@ -186,9 +186,8 @@
     .b-edu { grid-column: span 2; }
     .projects { grid-template-columns:1fr; }
     .proj { padding:22px; }
-    .proj.wide { grid-column:auto; }
     .proj h3 { font-size:21px; }
-    .proj.feature { grid-column:auto; grid-template-columns:1fr; gap:16px; padding:22px; }
+    .proj.feature { grid-template-columns:1fr; gap:16px; padding:22px; }
     .proj.feature h3 { font-size:26px; }
     .proj.feature p { font-size:15px; }
     .stack { grid-template-columns:1fr; }
@@ -294,8 +293,8 @@
 
     <section class="blk" id="work">
       <div class="blk-head">
-        <div><span class="num">02 — work</span><h2>Selected projects</h2></div>
-        <span class="idx">06 projects</span>
+        <div><span class="num">02 — projects</span><h2>Projects</h2></div>
+        <span class="idx">06 total</span>
       </div>
       <div class="projects">
         <a class="proj feature" href="#">
