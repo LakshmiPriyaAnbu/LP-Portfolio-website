@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" data-default-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakshmi Priya A — Software Developer</title>
+<script>(function(){var r=document.documentElement;var s;try{s=localStorage.getItem("pf-theme");}catch(e){}var d=r.getAttribute("data-default-theme");var t=s||d||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");r.setAttribute("data-theme",t);})();</script>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ============ Elevated creative build ============ */
+  :root {
+    --bg:#f5f4ef; --bg-2:#edeae2; --bg-3:#e5e1d7; --panel:#fffdf8;
+    --text:#15140f; --text-2:#5a574e; --text-3:#8c877b; --border:#e4e0d4; --border-2:#d6d0c1;
+    --accent:#4f46e5; --accent-2:#3f37d4; --accent-ink:#fff; --accent-weak:color-mix(in srgb, var(--accent) 12%, transparent);
+    --pop:#e8552b; /* warm secondary, used sparingly */
+  }
+  [data-theme="dark"] {
+    --bg:#0a0a0f; --bg-2:#101017; --bg-3:#18181f; --panel:#121219;
+    --text:#edecf3; --text-2:#9c99a9; --text-3:#6a6878; --border:#20202b; --border-2:#2d2d3b;
+    --accent:#8b8fff; --accent-2:#7c83ff; --accent-ink:#0a0a0f; --accent-weak:color-mix(in srgb, var(--accent) 18%, transparent);
+    --pop:#ff7a52;
+  }
+
+  body { overflow-x: hidden; }
+  /* grain + ambient glow */
+  body::before { content:""; position:fixed; inset:0; z-index:9998; pointer-events:none; opacity:.04; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  [data-theme="dark"] body::before { mix-blend-mode:screen; opacity:.05; }
+  .glow { position:fixed; border-radius:50%; filter:blur(90px); z-index:-1; pointer-events:none; opacity:.5; }
+  .glow.g1 { top:-160px; right:-120px; width:520px; height:520px; background:radial-gradient(circle,var(--accent-weak),transparent 70%); }
+  .glow.g2 { bottom:6%; left:-160px; width:480px; height:480px; background:radial-gradient(circle,color-mix(in srgb,var(--pop) 14%,transparent),transparent 70%); }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 var(--gut); }
+
+  /* floating pill nav */
+  .navwrap { position: sticky; top: 0; z-index: 70; padding: 16px var(--gut); display:flex; justify-content:center; }
+  .nav { width: 100%; max-width: 1080px; display:flex; align-items:center; justify-content:space-between;
+    background: color-mix(in srgb, var(--panel) 82%, transparent); backdrop-filter: blur(14px) saturate(1.2);
+    border:1px solid var(--border); border-radius: 999px; padding: 9px 9px 9px 18px; box-shadow: var(--shadow); }
+  .nav .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:15px; letter-spacing:-0.01em; }
+  .nav .logo .dot { width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-weak); }
+  .nav-links { display:flex; align-items:center; gap:6px; }
+  .nav-links a { font-size:13.5px; color:var(--text-2); padding:8px 14px; border-radius:999px; transition: color .2s, background .2s; }
+  .nav-links a:hover { color:var(--text); background:var(--bg-2); }
+  .nav-right { display:flex; align-items:center; gap:8px; }
+  .nav .theme-toggle { border-radius:999px; }
+
+  /* hero */
+  .hero { display:grid; grid-template-columns: 1.35fr 0.65fr; gap: clamp(28px,4vw,56px); align-items:center; padding: clamp(40px,7vh,76px) 0 clamp(20px,3vh,34px); }
+  .hero .ey { display:inline-flex; align-items:center; gap:9px; margin-bottom:22px; padding:6px 12px; border:1px solid var(--border); border-radius:999px; background:var(--panel); }
+  .hero .ey .live { width:8px; height:8px; border-radius:50%; background:#22a05a; box-shadow:0 0 0 0 rgba(34,160,90,.5); animation: live 2.4s ease-out infinite; }
+  @keyframes live { 0%{box-shadow:0 0 0 0 rgba(34,160,90,.5);} 70%,100%{box-shadow:0 0 0 7px transparent;} }
+  @media (prefers-reduced-motion: reduce){ .hero .ey .live{animation:none;} }
+  .hero h1 { font-size: clamp(40px, 6.6vw, 88px); line-height:0.95; letter-spacing:-0.045em; font-weight:800; }
+  .hero h1 .ac { color: var(--accent); }
+  .hero h1 .out { -webkit-text-stroke: 1.5px var(--text); color: transparent; }
+  [data-theme="dark"] .hero h1 .out { -webkit-text-stroke-color: var(--text); }
+  .hero .lead { color:var(--text-2); font-size:18px; margin:24px 0 0; max-width:44ch; }
+  .hero .cta { display:flex; gap:11px; margin-top:28px; flex-wrap:wrap; }
+  .hero .quick { display:flex; gap:16px; margin-top:24px; }
+  .hero .quick a { color:var(--text-2); display:inline-flex; align-items:center; gap:7px; font-size:13.5px; transition:color .2s; }
+  .hero .quick a:hover { color:var(--accent); }
+  .hero .quick svg { width:18px; height:18px; }
+  .hero .portrait { position:relative; }
+  .hero .portrait image-slot { display:block; width:100%; height:auto; aspect-ratio:4/5; box-shadow: var(--shadow-lg); border-radius:20px; }
+  .hero .portrait img.me { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 20%; border-radius:20px; box-shadow:var(--shadow-lg); }
+  .hero .portrait .tag { position:absolute; left:14px; bottom:14px; z-index:3; }
+
+  /* marquee */
+  .marquee { overflow:hidden; border-block:1px solid var(--border); padding:18px 0; margin-top: clamp(20px,3vh,32px); -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+  .marquee .track { display:flex; gap:40px; width:max-content; animation: scroll 30s linear infinite; }
+  .marquee .track span { display:inline-flex; align-items:center; gap:40px; white-space:nowrap; font-size: clamp(18px,2.6vw,28px); font-weight:700; letter-spacing:-0.02em; color:var(--text-2); }
+  .marquee .track span::after { content:"✦"; color:var(--accent); font-size:14px; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){ .marquee .track{animation:none;} }
+
+  /* section heads */
+  section.blk { padding: clamp(50px,8vh,96px) 0; }
+  .blk-head { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:34px; }
+  .blk-head .num { font-family:var(--mono); font-size:13px; color:var(--accent); }
+  .blk-head h2 { font-size: clamp(28px,4.4vw,46px); letter-spacing:-0.035em; margin-top:8px; }
+  .blk-head .idx { font-family:var(--mono); font-size:12.5px; color:var(--text-3); white-space:nowrap; }
+
+  /* bento */
+  .bento { display:grid; grid-template-columns: repeat(6,1fr); gap:14px; grid-auto-rows: minmax(116px,auto); }
+  .card { border:1px solid var(--border); border-radius:18px; background:var(--panel); padding:24px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+  .card .k { font-family:var(--mono); font-size:11px; color:var(--text-3); margin-bottom:12px; letter-spacing:.04em; }
+  .b-about { grid-column: span 3; grid-row: span 2; display:flex; flex-direction:column; }
+  .b-about .big { font-size: clamp(20px,2.3vw,27px); font-weight:700; letter-spacing:-0.02em; line-height:1.32; margin:0; }
+  .b-about .big .ac { color:var(--accent); }
+  .b-about p { color:var(--text-2); font-size:14.5px; margin:16px 0 0; }
+  .b-about .sig { margin-top:auto; padding-top:18px; font-family:var(--mono); font-size:12px; color:var(--text-3); }
+  .b-stats { grid-column: span 3; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); padding:0; border:1px solid var(--border); }
+  .b-stats .s { background:var(--panel); padding:20px 22px; }
+  .b-stats .s .n { font-family:var(--mono); font-weight:700; font-size: clamp(24px,3vw,34px); letter-spacing:-0.03em; line-height:1; }
+  .b-stats .s .n .u { color:var(--accent); }
+  .b-stats .s .l { font-size:12.5px; color:var(--text-2); margin-top:7px; }
+  .b-now { grid-column: span 2; }
+  .b-now .badge-row { margin-top:4px; }
+  .b-now p { color:var(--text-2); font-size:13.5px; margin:12px 0 0; }
+  .b-edu { grid-column: span 1; }
+  .b-edu h4 { font-size:15px; line-height:1.2; }
+  .b-edu .s { color:var(--text-2); font-size:12.5px; margin-top:6px; }
+  .b-edu .meta { font-family:var(--mono); font-size:11px; color:var(--text-3); margin-top:8px; }
+
+  /* projects — text-forward cards */
+  .projects { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .proj { position:relative; grid-column: span 1; border:1px solid var(--border); border-radius:20px; background:var(--panel); padding:28px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow); transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s; text-decoration:none; color:inherit; overflow:hidden; }
+  .proj::after { content:""; position:absolute; left:0; top:0; width:0; height:3px; background:var(--accent); transition: width .4s cubic-bezier(.2,.7,.2,1); }
+  .proj:hover::after { width:100%; }
+  .proj:hover { transform: translateY(-5px); box-shadow:var(--shadow-lg); border-color:var(--border-2); }
+  .proj .pno { font-family:var(--mono); font-size:12px; color:var(--accent); }
+  .proj h3 { font-size: clamp(20px,2.4vw,26px); letter-spacing:-0.02em; display:flex; align-items:center; gap:10px; margin-top:2px; }
+  .proj h3 .arrow { color:var(--text-3); transition: transform .25s, color .25s; margin-left:auto; }
+  .proj:hover h3 .arrow { transform: translate(4px,-4px); color:var(--accent); }
+  .proj p { color:var(--text-2); font-size:14.5px; margin:0; flex:1; }
+  .proj .badge-row { margin-top:6px; }
+  /* feature: full-width, editorial 2-column */
+  .proj.feature { grid-column: span 2; display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px 48px; align-items:center; padding:36px; }
+  .proj.feature .fcol { display:flex; flex-direction:column; gap:14px; }
+  .proj.feature h3 { font-size: clamp(28px,4.2vw,50px); }
+  .proj.feature p { font-size:16px; }
+
+  /* experience */
+  .exp { display:flex; flex-direction:column; }
+  .te { display:grid; grid-template-columns: 160px 1fr; gap:28px; padding:24px 0; border-top:1px solid var(--border); transition: padding .3s; }
+  .te:last-child { border-bottom:1px solid var(--border); }
+  .te:hover { padding-left:8px; }
+  .te .when { font-family:var(--mono); font-size:12.5px; color:var(--text-3); }
+  .te .when .badge { margin-top:10px; }
+  .te .role { font-size:18px; font-weight:700; }
+  .te .co { color:var(--accent); }
+  .te ul { margin:11px 0 0; padding:0; list-style:none; }
+  .te li { color:var(--text-2); font-size:14.5px; padding-left:20px; position:relative; margin-bottom:8px; }
+  .te li::before { content:"→"; position:absolute; left:0; color:var(--accent); font-size:12px; top:2px; }
+  .te .tags { margin-top:13px; }
+
+  /* stack */
+  .stack { display:grid; grid-template-columns: repeat(3,1fr); gap:14px; }
+  .scol { border:1px solid var(--border); border-radius:16px; background:var(--panel); padding:20px 22px; box-shadow:var(--shadow); }
+  .scol h4 { font-family:var(--mono); font-size:12px; color:var(--accent); margin-bottom:14px; font-weight:600; display:flex; align-items:center; gap:8px; }
+  .scol h4 svg { width:15px; height:15px; }
+
+  /* versatility + credentials */
+  .vgrid { display:grid; grid-template-columns:repeat(auto-fit, minmax(185px,1fr)); gap:14px; margin-bottom:14px; }
+  .vcard { border:1px solid var(--border); border-radius:16px; background:var(--panel); padding:22px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:11px; transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .vcard:hover { transform:translateY(-4px); border-color:var(--border-2); box-shadow:var(--shadow-lg); }
+  .vcard .ic { width:40px; height:40px; border-radius:11px; background:var(--accent-weak); color:var(--accent); display:grid; place-items:center; }
+  .vcard .ic svg { width:20px; height:20px; }
+  .vcard h4 { font-size:16px; }
+  .vcard p { color:var(--text-2); font-size:13.5px; margin:0; flex:1; line-height:1.55; }
+  .vcard .tag2 { font-family:var(--mono); font-size:11px; letter-spacing:.04em; }
+  .vcard .tag2.prod { color:var(--accent); }
+  .vcard .tag2.learn { color:var(--pop); }
+  .creds { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .cred { border:1px solid var(--border); border-radius:16px; background:var(--panel); padding:22px; box-shadow:var(--shadow); display:flex; gap:14px; align-items:flex-start; }
+  .cred .mk { width:42px; height:42px; border-radius:11px; background:var(--accent-weak); color:var(--accent); display:grid; place-items:center; flex:none; }
+  .cred .mk svg { width:21px; height:21px; }
+  .cred .k { font-family:var(--mono); font-size:11px; color:var(--text-3); margin-bottom:6px; }
+  .cred h4 { font-size:15px; line-height:1.25; }
+  .cred .s { color:var(--text-2); font-size:13px; margin-top:6px; }
+
+  /* footer CTA */
+  .cta-big { position:relative; padding: clamp(56px,10vh,120px) 0 clamp(40px,6vh,70px); text-align:center; }
+  .cta-big .num { font-family:var(--mono); font-size:13px; color:var(--accent); }
+  .cta-big h2 { font-size: clamp(44px,10vw,140px); line-height:0.92; letter-spacing:-0.05em; font-weight:800; margin:16px 0 0; }
+  .cta-big h2 .it { font-weight:400; font-style:italic; color:var(--accent); }
+  .cta-big .mail { display:inline-block; margin-top:30px; font-size: clamp(18px,2.4vw,26px); font-weight:700; letter-spacing:-0.02em; border-bottom:2px solid var(--accent); padding-bottom:4px; transition:color .25s; }
+  .cta-big .mail:hover { color:var(--accent); }
+  .cta-big .ways { display:flex; gap:11px; justify-content:center; margin-top:34px; flex-wrap:wrap; }
+  footer.foot { padding:28px 0 40px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-family:var(--mono); font-size:12px; color:var(--text-3); }
+  footer.foot a { color:var(--text-2); } footer.foot a:hover { color:var(--text); }
+
+  /* anchor offset under the sticky nav + active link state */
+  #about,#work,#experience,#stack,#versatility,#education,#contact { scroll-margin-top: 100px; }
+  .nav-links a.active { color: var(--text); background: var(--bg-2); }
+
+  @media (max-width: 900px) {
+    .nav-links { display:none; }
+    .hero { grid-template-columns:1fr; }
+    .hero .portrait { max-width:340px; }
+    .marquee .track { animation-duration:22s; }
+    .bento { grid-template-columns: repeat(2,1fr); }
+    .b-about, .b-stats, .b-now { grid-column: span 2; grid-row:auto; }
+    .b-edu { grid-column: span 2; }
+    .projects { grid-template-columns:1fr; }
+    .proj.feature { grid-column:auto; grid-template-columns:1fr; gap:18px; padding:26px; }
+    .stack { grid-template-columns:1fr; }
+    .vgrid { grid-template-columns:1fr 1fr; }
+    .creds { grid-template-columns:1fr; }
+    .te { grid-template-columns:1fr; gap:8px; }
+  }
+  @media (max-width: 560px) { .vgrid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div data-screen-label="Portfolio">
+
+  <div class="navwrap">
+    <nav class="nav">
+      <div class="logo"><span class="dot"></span> Lakshmi Priya A</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#stack">Stack</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn btn-primary" href="resume.pdf" download="LakshmiPriyaResume.pdf" target="_blank" rel="noopener" style="padding:9px 16px;font-size:13px;border-radius:999px">Résumé</a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.5 1.5M18.3 18.3l1.5 1.5M2 12h2M20 12h2M4.2 19.8l1.5-1.5M18.3 5.7l1.5-1.5"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div>
+        <h1>Software<br>developer who<br>builds <span class="ac">things</span><br>that <span class="out">work.</span></h1>
+        <p class="lead">I'm Lakshmi Priya — I build reliable, user-friendly products across iOS, web, backend &amp; connected devices, with a growing focus on AI &amp; GenAI.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#work">View my work
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Let's talk</a>
+        </div>
+        <div class="quick">
+          <a href="https://github.com/LakshmiPriyaAnbu" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg> GitHub</a>
+          <a href="http://www.linkedin.com/in/lakshmi-priya-anbarasu-490463206" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
+          <a href="mailto:lakshmipriya.anbu07@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Email</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img class="me" src="photo.jpg" alt="Lakshmi Priya A">
+        <span class="status tag"><span class="live"></span> Chennai, India</span>
+      </div>
+    </section>
+  </main>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>SwiftUI</span><span>iOS Development</span><span>Embedded · ESP32</span><span>LVGL · BLE</span><span>Angular</span><span>Node.js</span><span>AI · GenAI</span><span>App Clips · NFC</span>
+      <span>SwiftUI</span><span>iOS Development</span><span>Embedded · ESP32</span><span>LVGL · BLE</span><span>Angular</span><span>Node.js</span><span>AI · GenAI</span><span>App Clips · NFC</span>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <section class="blk" id="about">
+      <div class="blk-head">
+        <div><span class="num">01 — about</span><h2>The snapshot</h2></div>
+        <span class="idx">// who i am</span>
+      </div>
+      <div class="bento">
+        <div class="card b-about">
+          <div class="k">// profile</div>
+          <p class="big">Most engineers pick mobile, backend, or hardware. I like building across <span class="ac">all three</span> — and solving the gaps between them.</p>
+          <p>I build BLE-connected iOS apps with Swift, SwiftUI, Combine &amp; SwiftData; REST APIs with Node.js and PostgreSQL; and embedded firmware with C and LVGL. At Greater Goods I take features from idea to production — designing experiences that talk seamlessly to smart hardware, with a focus on performance, clean architecture, and real users.</p>
+          <div class="sig">— always learning, always shipping</div>
+        </div>
+        <div class="card b-stats">
+          <div class="s"><div class="n">2<span class="u">+</span></div><div class="l">Years building software</div></div>
+          <div class="s"><div class="n">6</div><div class="l">Apps &amp; projects shipped</div></div>
+          <div class="s"><div class="n">4</div><div class="l">Layers — iOS · web · backend · embedded</div></div>
+          <div class="s"><div class="n">15<span class="u">+</span></div><div class="l">Tools &amp; frameworks</div></div>
+        </div>
+        <div class="card b-now">
+          <div class="k">// currently exploring</div>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>LLMs</span><span class="badge">RAG</span><span class="badge">MCP</span><span class="badge">Python</span></div>
+          <p>Testing and upskilling in generative-AI technologies for upcoming AI-focused initiatives.</p>
+        </div>
+        <div class="card b-edu">
+          <div class="k">// education</div>
+          <h4>B.E. Electrical &amp; Electronics Engineering</h4>
+          <div class="s">SSN College of Engineering, Chennai</div>
+          <div class="meta">Nov 2020 — May 2024</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk" id="work">
+      <div class="blk-head">
+        <div><span class="num">02 — work</span><h2>Selected projects</h2></div>
+        <span class="idx">06 projects</span>
+      </div>
+      <div class="projects">
+        <a class="proj feature" href="#">
+          <div class="fcol">
+            <span class="pno">01 · iOS — Connected Health · Featured</span>
+            <h3>ME App <span class="arrow">↗</span></h3>
+            <div class="badge-row"><span class="badge"><span class="dot"></span>SwiftUI</span><span class="badge">UIKit</span><span class="badge">Core Data</span><span class="badge">SwiftData</span><span class="badge">Bluetooth</span></div>
+          </div>
+          <p>A connected health &amp; measurement app. I built iOS features for connected devices — Bluetooth pairing, live and stable measurements, and device data handling — plus a customizable dashboard with drag-and-drop metric cards (iPhone-home-screen style) using UIKit + SwiftUI, and Apple-Health-inspired trend visualizations for readable measurement history.</p>
+        </a>
+        <a class="proj" href="#">
+          <span class="pno">02 · iOS · App Clip</span>
+          <h3>Sage Kettle App <span class="arrow">↗</span></h3>
+          <p>An interactive Smart Kettle experience with clear navigation — plus an App Clip for lightweight access without a full install, launched via an NFC tag flow to improve onboarding.</p>
+          <div class="badge-row"><span class="badge">SwiftUI</span><span class="badge">App Clips</span><span class="badge">NFC</span></div>
+        </a>
+        <a class="proj" href="#">
+          <span class="pno">03 · iOS + Backend</span>
+          <h3>Sage <span class="arrow">↗</span></h3>
+          <p>A nutrition &amp; measurement app: ingredient search, filtering, and nutrition interfaces, with Bluetooth scale workflows for real-time capture and backend API routes + database operations behind them.</p>
+          <div class="badge-row"><span class="badge">SwiftUI</span><span class="badge">Bluetooth</span><span class="badge">Backend APIs</span></div>
+        </a>
+        <a class="proj" href="#">
+          <span class="pno">04 · iOS</span>
+          <h3>Internal Test App <span class="arrow">↗</span></h3>
+          <p>A Bluetooth device-testing app: discovery, connection, authentication, and measurement-data handling — with reliability from structured state management, async operations, and Core Data storage.</p>
+          <div class="badge-row"><span class="badge">SwiftUI</span><span class="badge">UIKit</span><span class="badge">Core Data</span></div>
+        </a>
+        <a class="proj" href="#">
+          <span class="pno">05 · Embedded</span>
+          <h3>Firmware &amp; Display UI <span class="arrow">↗</span></h3>
+          <p>Smart Kettle &amp; BPM display work: device setup workflows and BPM display screens built in LVGL, with reusable UI components and validation that routes invalid measurements to the right warning/error screens.</p>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>Embedded C</span><span class="badge">ESP32</span><span class="badge">LVGL</span></div>
+        </a>
+        <a class="proj" href="#">
+          <span class="pno">06 · Web</span>
+          <h3>Angular Web App <span class="arrow">↗</span></h3>
+          <p>Responsive Angular components and workflow screens across multiple modules, with reusable components and optimized state handling for consistency, usability, and performance.</p>
+          <div class="badge-row"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">HTML/CSS</span></div>
+        </a>
+        <a class="proj" href="https://github.com/LakshmiPriyaAnbu" target="_blank" rel="noopener" style="grid-column:span 2; align-items:flex-start;">
+          <span class="pno">+ more</span>
+          <h3>More on GitHub <span class="arrow">↗</span></h3>
+          <p style="flex:none">Browse the rest of my projects, experiments, and contributions.</p>
+          <div class="badge-row"><span class="badge">github.com/LakshmiPriyaAnbu</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="blk" id="experience">
+      <div class="blk-head"><div><span class="num">03 — experience</span><h2>Where I've worked</h2></div><span class="idx">Greater Goods India</span></div>
+      <div class="exp">
+        <div class="te">
+          <div class="when">Jun 2024 — Present<div class="badge">Full-time</div></div>
+          <div>
+            <div class="role">Software Developer · <span class="co">Greater Goods India</span></div>
+            <ul>
+              <li>Contribute across iOS, web, backend, and embedded projects — delivering high-quality features, responsive interfaces, and reliable user experiences.</li>
+              <li>Build iOS features and reusable UI components, and enhance Angular-based web components.</li>
+              <li>Work on embedded firmware display interfaces using C, ESP32, and LVGL for connected device products.</li>
+              <li>Support backend API integrations and upskill in LLM, RAG, and MCP for upcoming AI initiatives.</li>
+            </ul>
+            <div class="badge-row tags"><span class="badge">SwiftUI</span><span class="badge">Angular</span><span class="badge">ESP32 · LVGL</span><span class="badge">LLMs · RAG · MCP</span></div>
+          </div>
+        </div>
+        <div class="te">
+          <div class="when">Jan 2024 — May 2024<div class="badge">Internship</div></div>
+          <div>
+            <div class="role">Software Developer Intern · <span class="co">Greater Goods India</span></div>
+            <ul>
+              <li>Built backend APIs, managed PostgreSQL databases, and used GitHub for version control.</li>
+              <li>Assisted with API documentation, testing, and collaborative software development processes.</li>
+            </ul>
+            <div class="badge-row tags"><span class="badge">Node.js</span><span class="badge">Express</span><span class="badge">PostgreSQL</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk" id="stack">
+      <div class="blk-head"><div><span class="num">04 — stack</span><h2>Skills &amp; tools</h2></div></div>
+      <div class="stack">
+        <div class="scol">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>mobile / iOS</h4>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>Swift</span><span class="badge">SwiftUI</span><span class="badge">Combine</span><span class="badge">UIKit</span><span class="badge">Core Data</span><span class="badge">SwiftData</span><span class="badge">MVVM</span></div>
+        </div>
+        <div class="scol">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v14H4z"/><path d="M2 22h20"/></svg>frontend</h4>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>JavaScript</span><span class="badge">TypeScript</span><span class="badge">Angular</span><span class="badge">HTML</span><span class="badge">CSS</span></div>
+        </div>
+        <div class="scol">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>backend</h4>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>Node.js</span><span class="badge">Express.js</span><span class="badge">REST APIs</span><span class="badge">PostgreSQL</span><span class="badge">Firebase</span></div>
+        </div>
+        <div class="scol">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>embedded / firmware</h4>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>Embedded C</span><span class="badge">ESP32</span><span class="badge">LVGL</span><span class="badge">BLE</span><span class="badge">Microcontrollers</span></div>
+        </div>
+        <div class="scol">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4c1.5.5 3 2 3 4.5 0 1-.3 1.8-.8 2.5.5.7.8 1.6.8 2.5 0 2.5-2 4.5-4.5 4.5A3.5 3.5 0 0 1 12 22a3.5 3.5 0 0 1-2.7-1.5C6.8 20.5 5 18.5 5 16c0-.9.3-1.8.8-2.5A4.2 4.2 0 0 1 5 11c0-2.5 1.5-4 3-4.5a4 4 0 0 1 4-4Z"/></svg>ai / genai</h4>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>Python</span><span class="badge">Generative AI</span><span class="badge">LLMs</span><span class="badge">RAG</span><span class="badge">MCP</span></div>
+        </div>
+        <div class="scol">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.4 1.4 0 0 0 2 2l6-6a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.3-2.3Z"/></svg>devops &amp; tools</h4>
+          <div class="badge-row"><span class="badge">Git</span><span class="badge">GitHub</span><span class="badge">Docker</span><span class="badge">Kubernetes</span><span class="badge">Postman</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk" id="versatility">
+      <div class="blk-head"><div><span class="num">05 — versatility</span><h2>One developer, the whole stack</h2></div><span class="idx">// range &amp; credentials</span></div>
+      <div class="vgrid">
+        <div class="vcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+          <h4>Mobile / iOS</h4>
+          <p>Shipped SwiftUI + UIKit apps with Bluetooth, Core Data, gestures and animations.</p>
+          <span class="tag2 prod">● production</span>
+        </div>
+        <div class="vcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v14H4z"/><path d="M2 22h20"/></svg></div>
+          <h4>Web / Frontend</h4>
+          <p>Built responsive Angular modules with reusable, performant components.</p>
+          <span class="tag2 prod">● production</span>
+        </div>
+        <div class="vcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+          <h4>Backend / APIs</h4>
+          <p>Designed REST APIs and managed PostgreSQL databases through an engineering internship.</p>
+          <span class="tag2 prod">● production</span>
+        </div>
+        <div class="vcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></div>
+          <h4>Embedded / Firmware</h4>
+          <p>Built device display UIs and firmware flows on ESP32 with LVGL and BLE for connected products.</p>
+          <span class="tag2 prod">● production</span>
+        </div>
+        <div class="vcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4c1.5.5 3 2 3 4.5 0 1-.3 1.8-.8 2.5.5.7.8 1.6.8 2.5 0 2.5-2 4.5-4.5 4.5A3.5 3.5 0 0 1 12 22a3.5 3.5 0 0 1-2.7-1.5C6.8 20.5 5 18.5 5 16c0-.9.3-1.8.8-2.5A4.2 4.2 0 0 1 5 11c0-2.5 1.5-4 3-4.5a4 4 0 0 1 4-4Z"/></svg></div>
+          <h4>AI / GenAI</h4>
+          <p>Actively building with LLMs, RAG and MCP for upcoming AI-focused initiatives.</p>
+          <span class="tag2 learn">● actively learning</span>
+        </div>
+      </div>
+      <div class="creds">
+        <div class="cred">
+          <div class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="m8.5 12.5-1.5 8 5-3 5 3-1.5-8"/></svg></div>
+          <div>
+            <div class="k">// certification</div>
+            <h4>Career Essentials in Project Management</h4>
+            <div class="s">Planning, delivery &amp; collaboration · Professional certificate</div>
+          </div>
+        </div>
+        <div class="cred">
+          <div class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.1 4.8L19 9l-3.5 3.4.9 5L12 14.8 7.6 17.4l.9-5L5 9l4.9-1.2L12 3Z"/></svg></div>
+          <div>
+            <div class="k">// approach</div>
+            <h4>Reliable &amp; user-focused</h4>
+            <div class="s">Clean, dependable work, great UX &amp; continuous learning.</div>
+          </div>
+        </div>
+        <div class="cred">
+          <div class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
+          <div>
+            <div class="k">// languages</div>
+            <h4>Trilingual communicator</h4>
+            <div class="s">English &amp; Tamil — Fluent · Hindi — Intermediate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk" id="education">
+      <div class="blk-head"><div><span class="num">06 — education</span><h2>Education &amp; schooling</h2></div><span class="idx">// academic journey</span></div>
+      <div class="exp">
+        <div class="te">
+          <div class="when">Nov 2020 — May 2024<div class="badge">Degree</div></div>
+          <div>
+            <div class="role">B.E. Electrical &amp; Electronics Engineering · <span class="co">SSN College of Engineering</span></div>
+            <ul>
+              <li>Built a strong engineering foundation while transitioning into software development.</li>
+              <li>Career Essentials in Project Management — professional certificate.</li>
+            </ul>
+            <div class="badge-row tags"><span class="badge">Chennai, Tamil Nadu</span></div>
+          </div>
+        </div>
+        <div class="te">
+          <div class="when">Jun 2017 — Apr 2019<div class="badge">Class XII</div></div>
+          <div>
+            <div class="role">Higher Secondary · <span class="co">Velammal Vidhyashram</span></div>
+            <ul>
+              <li>Biology &amp; Mathematics (Bio-Maths) stream.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="te">
+          <div class="when">Mar 2016 — Apr 2017<div class="badge">Class X</div></div>
+          <div>
+            <div class="role">SSLC · <span class="co">Velammal Vidhyashram</span></div>
+            <ul>
+              <li>Class X (10th grade) board examination.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="cta-big" id="contact">
+    <div class="wrap">
+      <span class="num">07 — contact</span>
+      <h2>Let's build<br>something <span class="it">great.</span></h2>
+      <p style="color:var(--text-2); max-width:50ch; margin:18px auto 0; font-size:16px;">I'm always open to conversations around iOS engineering, embedded systems, connected devices, and full-stack software.</p>
+      <a class="mail" href="mailto:lakshmipriya.anbu07@gmail.com">lakshmipriya.anbu07@gmail.com</a>
+      <div class="ways">
+        <a class="btn btn-primary" href="mailto:lakshmipriya.anbu07@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://github.com/LakshmiPriyaAnbu" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="http://www.linkedin.com/in/lakshmi-priya-anbarasu-490463206" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="resume.pdf" download="LakshmiPriyaResume.pdf" target="_blank" rel="noopener">Résumé</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot wrap">
+    <span>© 2026 Lakshmi Priya A</span>
+    <span>Designed &amp; built · Chennai, India</span>
+  </footer>
+
+</div>
+
+<script src="theme.js"></script>
+<script>
+  (function () {
+    var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+    var map = links.map(function (a) { return { a: a, sec: document.querySelector(a.getAttribute('href')) }; }).filter(function (x) { return x.sec; });
+    if (!map.length) return;
+    function spy() {
+      var y = window.scrollY + 130, cur = map[0];
+      for (var i = 0; i < map.length; i++) { if (map[i].sec.offsetTop <= y) cur = map[i]; }
+      links.forEach(function (a) { a.classList.remove('active'); });
+      cur.a.classList.add('active');
+    }
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('resize', spy);
+    spy();
+  })();
+</script>
+</body>
+</html>
