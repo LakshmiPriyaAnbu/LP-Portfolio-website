@@ -93,3 +93,7 @@ If you ever want to rebuild it yourself, this is the recipe that was followed:
 7. **Fill with real content** from the résumé/LinkedIn, keeping claims honest.
 
 That's it — a fast, framework-free site you fully own.
+
+
+🔗 Live site: https://lakshmipriyaanbu.github.io/LP-Portfolio-websitse/
+📂 Repo: https://github.com/LakshmiPriyaAnbu/LP-Portfolio-websitse
