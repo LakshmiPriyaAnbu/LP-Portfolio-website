@@ -95,9 +95,13 @@
   .b-stats .s .n { font-family:var(--mono); font-weight:700; font-size: clamp(24px,3vw,34px); letter-spacing:-0.03em; line-height:1; }
   .b-stats .s .n .u { color:var(--accent); }
   .b-stats .s .l { font-size:12.5px; color:var(--text-2); margin-top:7px; }
-  .b-now { grid-column: span 3; }
+  .b-now { grid-column: span 2; }
   .b-now .badge-row { margin-top:4px; }
   .b-now p { color:var(--text-2); font-size:13.5px; margin:12px 0 0; }
+  .b-edu { grid-column: span 1; }
+  .b-edu h4 { font-size:15px; line-height:1.2; }
+  .b-edu .s { color:var(--text-2); font-size:12.5px; margin-top:6px; }
+  .b-edu .meta { font-family:var(--mono); font-size:11px; color:var(--text-3); margin-top:8px; }
 
   /* projects — text-forward cards */
   .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap:18px; }
@@ -204,6 +208,7 @@
     .marquee .track { animation-duration:22s; }
     .bento { grid-template-columns: repeat(2,1fr); }
     .b-about, .b-stats, .b-now { grid-column: span 2; grid-row:auto; }
+    .b-edu { grid-column: span 2; }
     .projects { grid-template-columns:1fr; }
     .showcase { grid-template-columns:1fr; gap:22px; }
     .proj { padding:22px; }
@@ -303,6 +308,12 @@
           <div class="badge-row"><span class="badge"><span class="dot"></span>LLMs</span><span class="badge">RAG</span><span class="badge">MCP</span><span class="badge">Python</span></div>
           <p>Testing and upskilling in generative-AI technologies for upcoming AI-focused initiatives.</p>
         </div>
+        <div class="card b-edu">
+          <div class="k">// education</div>
+          <h4>B.E. Electrical &amp; Electronics Engineering</h4>
+          <div class="s">SSN College of Engineering, Chennai</div>
+          <div class="meta">Nov 2020 — May 2024</div>
+        </div>
       </div>
     </section>
 
@@ -362,7 +373,7 @@
     <section class="blk" id="builds">
       <div class="blk-head">
         <div><span class="num">03 — live builds</span><h2>Try it live</h2></div>
-        <span class="idx">// deployed · open the running app</span>
+        <span class="idx">03 live · open the running app</span>
       </div>
       <div class="builds">
         <div class="showcase">
@@ -387,6 +398,58 @@
               <button type="button" class="active" data-src="uploads/shot-command.png" data-url="mini-redis-visualizer.onrender.com · command mode" aria-label="Command mode"><img class="tw" src="uploads/shot-command.png" alt=""><span class="tl">Command mode</span></button>
               <button type="button" data-src="uploads/shot-datatypes.png" data-url="mini-redis-visualizer.onrender.com · data types" aria-label="Data types"><img class="tw" src="uploads/shot-datatypes.png" alt=""><span class="tl">Data types</span></button>
               <button type="button" data-src="uploads/shot-memory.png" data-url="mini-redis-visualizer.onrender.com · memory store" aria-label="Live memory store"><img class="tw" src="uploads/shot-memory.png" alt=""><span class="tl">Memory store</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase" style="margin-top:22px">
+          <div class="sc-info">
+            <div class="top"><span class="pno">02 · learning platform</span><span class="status"><span class="live"></span> Live</span></div>
+            <h3>GitQuest — Visual Git Playground</h3>
+            <p>A gamified Git learning platform that turns version control into a quest. Run real Git commands in a simulator and watch files travel from your working directory to staging to glowing commit crystals — while a commit graph, branch map, and merge simulator show exactly what happens under the hood.</p>
+            <p>Guided quests, XP, levels and badges track your progress; a Command Lab breaks down each command with syntax, examples and quizzes; and a GitHub Visualizer turns any profile into a quest log of repos, streaks and contributions.</p>
+            <div class="badge-row"><span class="badge"><span class="dot"></span>TypeScript</span><span class="badge">Git Simulator</span><span class="badge">Commit Graph</span><span class="badge">Gamified XP</span><span class="badge">GitHub API</span><span class="badge">Render</span></div>
+            <div class="actions">
+              <a class="btn btn-primary" href="https://gitquest-y41k.onrender.com/" target="_blank" rel="noopener">Live demo
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="sc-shot">
+            <div class="browser">
+              <div class="bbar"><i></i><i></i><i></i><span class="url">gitquest-y41k.onrender.com · home</span></div>
+              <img class="scr" src="uploads/01-dashboard.png" alt="GitQuest — home dashboard">
+            </div>
+            <div class="thumbs" role="tablist">
+              <button type="button" class="active" data-src="uploads/01-dashboard.png" data-url="gitquest-y41k.onrender.com · home" aria-label="Home dashboard"><img class="tw" src="uploads/01-dashboard.png" alt=""><span class="tl">Home</span></button>
+              <button type="button" data-src="uploads/02-playground.png" data-url="gitquest-y41k.onrender.com · git playground" aria-label="Git Playground"><img class="tw" src="uploads/02-playground.png" alt=""><span class="tl">Playground</span></button>
+              <button type="button" data-src="uploads/08-github-visualizer.png" data-url="gitquest-y41k.onrender.com · github visualizer" aria-label="GitHub Visualizer"><img class="tw" src="uploads/08-github-visualizer.png" alt=""><span class="tl">GitHub Viz</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase" style="margin-top:22px">
+          <div class="sc-info">
+            <div class="top"><span class="pno">03 · full-stack fintech</span><span class="status"><span class="live"></span> Live</span></div>
+            <h3>SpendWise — Finance Tracker</h3>
+            <p>A full-stack personal finance tracker that helps you manage expenses, scan receipts, import bank statements and understand where your money really goes. It turns raw spending into a clean dashboard: total balance, income vs. expenses, savings rate and a spend-by-category breakdown, all in one glance.</p>
+            <p>Real fintech workflows throughout — automatic transaction categorization, per-category monthly budgets with on-track/close alerts, six-month spending trends and exportable PDF/CSV reports, plus privacy-conscious handling that masks and auto-deletes raw statements.</p>
+            <div class="badge-row"><span class="badge"><span class="dot"></span>Full-stack</span><span class="badge">Receipt OCR</span><span class="badge">Statement Import</span><span class="badge">Budgets</span><span class="badge">Analytics</span><span class="badge">Render</span></div>
+            <div class="actions">
+              <a class="btn btn-primary" href="https://spendwise-vrcw.onrender.com" target="_blank" rel="noopener">Live demo
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="sc-shot">
+            <div class="browser">
+              <div class="bbar"><i></i><i></i><i></i><span class="url">spendwise-vrcw.onrender.com · dashboard</span></div>
+              <img class="scr" src="uploads/02-dashboard.png" alt="SpendWise — dashboard">
+            </div>
+            <div class="thumbs" role="tablist">
+              <button type="button" class="active" data-src="uploads/02-dashboard.png" data-url="spendwise-vrcw.onrender.com · dashboard" aria-label="Dashboard"><img class="tw" src="uploads/02-dashboard.png" alt=""><span class="tl">Dashboard</span></button>
+              <button type="button" data-src="uploads/06-analytics.png" data-url="spendwise-vrcw.onrender.com · analytics" aria-label="Analytics"><img class="tw" src="uploads/06-analytics.png" alt=""><span class="tl">Analytics</span></button>
+              <button type="button" data-src="uploads/05-budgets.png" data-url="spendwise-vrcw.onrender.com · budgets" aria-label="Budgets"><img class="tw" src="uploads/05-budgets.png" alt=""><span class="tl">Budgets</span></button>
             </div>
           </div>
         </div>
@@ -560,16 +623,19 @@
 </script>
 <script>
   (function () {
-    var main = document.getElementById('scMain');
-    if (!main) return;
-    var url = document.querySelector('.browser .url');
-    var btns = [].slice.call(document.querySelectorAll('.thumbs button'));
-    btns.forEach(function (b) {
-      b.addEventListener('click', function () {
-        main.src = b.getAttribute('data-src');
-        if (url) url.textContent = b.getAttribute('data-url');
-        btns.forEach(function (x) { x.classList.remove('active'); });
-        b.classList.add('active');
+    var shows = [].slice.call(document.querySelectorAll('.showcase'));
+    shows.forEach(function (sc) {
+      var main = sc.querySelector('.scr');
+      var url = sc.querySelector('.browser .url');
+      var btns = [].slice.call(sc.querySelectorAll('.thumbs button'));
+      if (!main || !btns.length) return;
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          main.src = b.getAttribute('data-src');
+          if (url) url.textContent = b.getAttribute('data-url');
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+        });
       });
     });
   })();
