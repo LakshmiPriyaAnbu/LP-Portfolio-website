@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lakshmi Priya A — Software Developer</title>
 <script>(function(){var r=document.documentElement;var s;try{s=localStorage.getItem("pf-theme");}catch(e){}var d=r.getAttribute("data-default-theme");var t=s||d||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");r.setAttribute("data-theme",t);})();</script>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="portfolio/pro.css">
 <style>
   /* ============ Elevated creative build ============ */
   :root {
@@ -95,13 +95,9 @@
   .b-stats .s .n { font-family:var(--mono); font-weight:700; font-size: clamp(24px,3vw,34px); letter-spacing:-0.03em; line-height:1; }
   .b-stats .s .n .u { color:var(--accent); }
   .b-stats .s .l { font-size:12.5px; color:var(--text-2); margin-top:7px; }
-  .b-now { grid-column: span 2; }
+  .b-now { grid-column: span 3; }
   .b-now .badge-row { margin-top:4px; }
   .b-now p { color:var(--text-2); font-size:13.5px; margin:12px 0 0; }
-  .b-edu { grid-column: span 1; }
-  .b-edu h4 { font-size:15px; line-height:1.2; }
-  .b-edu .s { color:var(--text-2); font-size:12.5px; margin-top:6px; }
-  .b-edu .meta { font-family:var(--mono); font-size:11px; color:var(--text-3); margin-top:8px; }
 
   /* projects — text-forward cards */
   .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap:18px; }
@@ -121,6 +117,31 @@
   .proj.feature .fcol { display:flex; flex-direction:column; gap:14px; }
   .proj.feature h3 { font-size: clamp(28px,4.2vw,50px); }
   .proj.feature p { font-size:16px; }
+
+  /* live builds — showcase */
+  .builds { display:block; }
+  .showcase { display:grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(24px,3.6vw,52px); align-items:center; border:1px solid var(--border); border-radius:24px; background:var(--panel); box-shadow:var(--shadow); padding: clamp(24px,3vw,42px); }
+  .sc-info { display:flex; flex-direction:column; gap:16px; min-width:0; }
+  .sc-info .top { display:flex; align-items:center; gap:12px; }
+  .sc-info .pno { font-family:var(--mono); font-size:12px; color:var(--accent); }
+  .sc-info h3 { font-size: clamp(26px,3.2vw,40px); letter-spacing:-0.03em; }
+  .sc-info p { color:var(--text-2); font-size:15px; margin:0; line-height:1.62; }
+  .sc-info p + p { font-size:14px; color:var(--text-3); }
+  .sc-info .actions { display:flex; gap:11px; margin-top:6px; flex-wrap:wrap; }
+  .sc-shot { display:flex; flex-direction:column; gap:12px; min-width:0; }
+  .browser { border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow: var(--shadow-lg); background:var(--bg-2); }
+  .browser .bbar { display:flex; align-items:center; gap:7px; padding:10px 14px; background:var(--bg-3); border-bottom:1px solid var(--border); }
+  .browser .bbar i { width:11px; height:11px; border-radius:50%; display:block; }
+  .browser .bbar i:nth-child(1){ background:#ff5f57; } .browser .bbar i:nth-child(2){ background:#febc2e; } .browser .bbar i:nth-child(3){ background:#28c840; }
+  .browser .bbar .url { margin-left:8px; font-family:var(--mono); font-size:12px; color:var(--text-3); background:var(--panel); border:1px solid var(--border); border-radius:6px; padding:3px 12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .browser .scr { display:block; width:100%; aspect-ratio:2880/1800; object-fit:cover; object-position:top center; background:var(--bg-2); }
+  .thumbs { display:flex; gap:10px; }
+  .thumbs button { flex:1; min-width:0; border:1px solid var(--border); border-radius:10px; overflow:hidden; padding:0; cursor:pointer; background:var(--panel); transition: border-color .2s, transform .2s, box-shadow .2s; }
+  .thumbs button .tw { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top center; }
+  .thumbs button .tl { display:block; font-family:var(--mono); font-size:10.5px; color:var(--text-3); padding:6px 4px; letter-spacing:.02em; }
+  .thumbs button:hover { transform: translateY(-2px); border-color:var(--border-2); }
+  .thumbs button.active { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent-weak); }
+  .thumbs button.active .tl { color:var(--accent); }
 
   /* experience */
   .exp { display:flex; flex-direction:column; }
@@ -173,7 +194,7 @@
   footer.foot a { color:var(--text-2); } footer.foot a:hover { color:var(--text); }
 
   /* anchor offset under the sticky nav + active link state */
-  #about,#work,#experience,#stack,#versatility,#education,#contact { scroll-margin-top: 100px; }
+  #about,#work,#builds,#experience,#stack,#versatility,#contact { scroll-margin-top: 100px; }
   .nav-links a.active { color: var(--text); background: var(--bg-2); }
 
   @media (max-width: 900px) {
@@ -183,8 +204,8 @@
     .marquee .track { animation-duration:22s; }
     .bento { grid-template-columns: repeat(2,1fr); }
     .b-about, .b-stats, .b-now { grid-column: span 2; grid-row:auto; }
-    .b-edu { grid-column: span 2; }
     .projects { grid-template-columns:1fr; }
+    .showcase { grid-template-columns:1fr; gap:22px; }
     .proj { padding:22px; }
     .proj h3 { font-size:21px; }
     .proj.feature { grid-template-columns:1fr; gap:16px; padding:22px; }
@@ -210,13 +231,13 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#work">Work</a>
+        <a href="#builds">Builds</a>
         <a href="#experience">Experience</a>
         <a href="#stack">Stack</a>
-        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-right">
-        <a class="btn btn-primary" href="resume.pdf" download="LakshmiPriyaResume.pdf" target="_blank" rel="noopener" style="padding:9px 16px;font-size:13px;border-radius:999px">Résumé</a>
+        <a class="btn btn-primary" href="uploads/CopyofLakshmi_PriyaA_Resume.pdf" download="LakshmiPriyaResume.pdf" target="_blank" rel="noopener" style="padding:9px 16px;font-size:13px;border-radius:999px">Résumé</a>
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
           <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.5 1.5M18.3 18.3l1.5 1.5M2 12h2M20 12h2M4.2 19.8l1.5-1.5M18.3 5.7l1.5-1.5"/></svg>
@@ -282,19 +303,13 @@
           <div class="badge-row"><span class="badge"><span class="dot"></span>LLMs</span><span class="badge">RAG</span><span class="badge">MCP</span><span class="badge">Python</span></div>
           <p>Testing and upskilling in generative-AI technologies for upcoming AI-focused initiatives.</p>
         </div>
-        <div class="card b-edu">
-          <div class="k">// education</div>
-          <h4>B.E. Electrical &amp; Electronics Engineering</h4>
-          <div class="s">SSN College of Engineering, Chennai</div>
-          <div class="meta">Nov 2020 — May 2024</div>
-        </div>
       </div>
     </section>
 
     <section class="blk" id="work">
       <div class="blk-head">
         <div><span class="num">02 — projects</span><h2>Projects</h2></div>
-        <span class="idx">06 total</span>
+        <span class="idx">07 total</span>
       </div>
       <div class="projects">
         <a class="proj feature" href="#">
@@ -335,17 +350,51 @@
           <p>Responsive Angular components and workflow screens across multiple modules, with reusable components and optimized state handling for consistency, usability, and performance.</p>
           <div class="badge-row"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">HTML/CSS</span></div>
         </a>
-        <a class="proj wide" href="https://github.com/LakshmiPriyaAnbu" target="_blank" rel="noopener" style="align-items:flex-start;">
-          <span class="pno">+ more</span>
-          <h3>More on GitHub <span class="arrow">↗</span></h3>
-          <p style="flex:none">Browse the rest of my projects, experiments, and contributions.</p>
-          <div class="badge-row"><span class="badge">github.com/LakshmiPriyaAnbu</span></div>
+        <a class="proj" href="#">
+          <span class="pno">07 · Alexa · Connected Device</span>
+          <h3>Sage Smart Kettle — Alexa APL UI <span class="arrow">↗</span></h3>
+          <p>A screen-based Alexa companion interface for a smart kettle, built in Alexa Presentation Language for Echo Show. A multi-screen flow — device carousel, a schedule screen with an interactive drag temperature dial, presets, confirmation, and an inline-video learn screen — with custom Alexa Vector Graphics and <code style="font-family:var(--mono);font-size:.9em;">SendEvent</code> hooks back to the skill layer.</p>
+          <div class="badge-row"><span class="badge"><span class="dot"></span>APL 2024.3</span><span class="badge">Alexa Vector Graphics</span><span class="badge">Alexa Skills Kit</span><span class="badge">Echo Show</span></div>
         </a>
       </div>
     </section>
 
+    <section class="blk" id="builds">
+      <div class="blk-head">
+        <div><span class="num">03 — live builds</span><h2>Try it live</h2></div>
+        <span class="idx">// deployed · open the running app</span>
+      </div>
+      <div class="builds">
+        <div class="showcase">
+          <div class="sc-info">
+            <div class="top"><span class="pno">01 · playground</span><span class="status"><span class="live"></span> Live</span></div>
+            <h3>MiniRedis Visualizer</h3>
+            <p>An interactive Redis learning playground where you run Redis-like commands and see how in-memory key-value storage, TTL expiry, command parsing, data types and backend state updates actually work — in real time.</p>
+            <p>It includes a Redis-style command terminal, a live memory table, command history, an explanation panel, a TTL eviction loop, type-safe List / Hash / Set operations, and a backend store powered by a JavaScript <code style="font-family:var(--mono);font-size:.9em;background:var(--bg-2);border:1px solid var(--border);border-radius:5px;padding:1px 6px;">Map</code>.</p>
+            <div class="badge-row"><span class="badge"><span class="dot"></span>Angular</span><span class="badge">TypeScript</span><span class="badge">Node.js</span><span class="badge">Express.js</span><span class="badge">REST API</span><span class="badge">JavaScript Map</span><span class="badge">Render</span></div>
+            <div class="actions">
+              <a class="btn btn-primary" href="https://mini-redis-visualizer.onrender.com/" target="_blank" rel="noopener">Live demo
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="sc-shot">
+            <div class="browser">
+              <div class="bbar"><i></i><i></i><i></i><span class="url">mini-redis-visualizer.onrender.com · command mode</span></div>
+              <img class="scr" id="scMain" src="uploads/shot-command.png" alt="MiniRedis Visualizer — command mode">
+            </div>
+            <div class="thumbs" role="tablist">
+              <button type="button" class="active" data-src="uploads/shot-command.png" data-url="mini-redis-visualizer.onrender.com · command mode" aria-label="Command mode"><img class="tw" src="uploads/shot-command.png" alt=""><span class="tl">Command mode</span></button>
+              <button type="button" data-src="uploads/shot-datatypes.png" data-url="mini-redis-visualizer.onrender.com · data types" aria-label="Data types"><img class="tw" src="uploads/shot-datatypes.png" alt=""><span class="tl">Data types</span></button>
+              <button type="button" data-src="uploads/shot-memory.png" data-url="mini-redis-visualizer.onrender.com · memory store" aria-label="Live memory store"><img class="tw" src="uploads/shot-memory.png" alt=""><span class="tl">Memory store</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="blk" id="experience">
-      <div class="blk-head"><div><span class="num">03 — experience</span><h2>Where I've worked</h2></div><span class="idx">Greater Goods India</span></div>
+      <div class="blk-head"><div><span class="num">04 — experience</span><h2>Where I've worked</h2></div><span class="idx">Greater Goods India</span></div>
       <div class="exp">
         <div class="te">
           <div class="when">Jun 2024 — Present<div class="badge">Full-time</div></div>
@@ -375,7 +424,7 @@
     </section>
 
     <section class="blk" id="stack">
-      <div class="blk-head"><div><span class="num">04 — stack</span><h2>Skills &amp; tools</h2></div></div>
+      <div class="blk-head"><div><span class="num">05 — stack</span><h2>Skills &amp; tools</h2></div></div>
       <div class="stack">
         <div class="scol">
           <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>mobile / iOS</h4>
@@ -405,7 +454,7 @@
     </section>
 
     <section class="blk" id="versatility">
-      <div class="blk-head"><div><span class="num">05 — versatility</span><h2>One developer, the whole stack</h2></div><span class="idx">// range &amp; credentials</span></div>
+      <div class="blk-head"><div><span class="num">06 — versatility</span><h2>Comfortable across the stack</h2></div><span class="idx">// range &amp; credentials</span></div>
       <div class="vgrid">
         <div class="vcard">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
@@ -466,39 +515,6 @@
       </div>
     </section>
 
-    <section class="blk" id="education">
-      <div class="blk-head"><div><span class="num">06 — education</span><h2>Education &amp; schooling</h2></div><span class="idx">// academic journey</span></div>
-      <div class="exp">
-        <div class="te">
-          <div class="when">Nov 2020 — May 2024<div class="badge">Degree</div></div>
-          <div>
-            <div class="role">B.E. Electrical &amp; Electronics Engineering · <span class="co">SSN College of Engineering</span></div>
-            <ul>
-              <li>Built a strong engineering foundation while transitioning into software development.</li>
-              <li>Career Essentials in Project Management — professional certificate.</li>
-            </ul>
-            <div class="badge-row tags"><span class="badge">Chennai, Tamil Nadu</span></div>
-          </div>
-        </div>
-        <div class="te">
-          <div class="when">Jun 2017 — Apr 2019<div class="badge">Class XII</div></div>
-          <div>
-            <div class="role">Higher Secondary · <span class="co">Velammal Vidhyashram</span></div>
-            <ul>
-              <li>Biology &amp; Mathematics (Bio-Maths) stream.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="te">
-          <div class="when">Mar 2016 — Apr 2017<div class="badge">Class X</div></div>
-          <div>
-            <div class="role">SSLC · <span class="co">Velammal Vidhyashram</span></div>
-            <ul>
-              <li>Class X (10th grade) board examination.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </section>
 
   </main>
@@ -513,7 +529,7 @@
         <a class="btn btn-primary" href="mailto:lakshmipriya.anbu07@gmail.com">Email me</a>
         <a class="btn btn-ghost" href="https://github.com/LakshmiPriyaAnbu" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn-ghost" href="http://www.linkedin.com/in/lakshmi-priya-anbarasu-490463206" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-ghost" href="resume.pdf" download="LakshmiPriyaResume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="btn btn-ghost" href="uploads/CopyofLakshmi_PriyaA_Resume.pdf" download="LakshmiPriyaResume.pdf" target="_blank" rel="noopener">Résumé</a>
       </div>
     </div>
   </section>
@@ -525,7 +541,7 @@
 
 </div>
 
-<script src="theme.js"></script>
+<script src="portfolio/theme.js"></script>
 <script>
   (function () {
     var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
@@ -540,6 +556,22 @@
     window.addEventListener('scroll', spy, { passive: true });
     window.addEventListener('resize', spy);
     spy();
+  })();
+</script>
+<script>
+  (function () {
+    var main = document.getElementById('scMain');
+    if (!main) return;
+    var url = document.querySelector('.browser .url');
+    var btns = [].slice.call(document.querySelectorAll('.thumbs button'));
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        main.src = b.getAttribute('data-src');
+        if (url) url.textContent = b.getAttribute('data-url');
+        btns.forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active');
+      });
+    });
   })();
 </script>
 </body>
