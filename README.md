@@ -39,7 +39,7 @@ Alternatively, open `index.html` directly in a browser — auto-reload on save w
 **Links** — Update in `index.html`:
 - Contact email: `lakshmipriya.anbu07@gmail.com`
 - GitHub and LinkedIn URLs
-- Résumé: `uploads/CopyofLakshmi_PriyaA_Resume.pdf`
+- Résumé: `uploads/LakshmiPriya_resume.pdf`
 
 **Photo** — Replace `photo.jpg` with a new image of the same name (portrait, ~4:5 ratio recommended).
 
